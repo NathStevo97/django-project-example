@@ -13,11 +13,10 @@ uv add ruff --group dev
 # verify django version
 uv run django-admin --version
 
-# create project
-uv run django-admin startproject <project name>
+# create project - add . to stop django creating extra nested folder
+uv run django-admin startproject <project name> .
 
 # test run the server
-cd <project name>
 uv run python manage.py runserver
 
 # Note: if port 8000 (default) is already in use - address either by:

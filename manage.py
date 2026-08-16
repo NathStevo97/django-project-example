@@ -3,7 +3,9 @@
 
 import os
 import sys
+
 from django.core.management.commands.runserver import Command as runserver
+
 
 def main():
     """Run administrative tasks."""
@@ -16,7 +18,7 @@ def main():
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
-    runserver.default_port = "8080"  # Set the default port to 8080
+    runserver.default_port = "8080"
     execute_from_command_line(sys.argv)
 
 
