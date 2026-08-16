@@ -31,4 +31,49 @@ cd <project name>
 uv run python manage.py startapp <app name> (e.g. members)
 
 # Should now have another folder called members within the project
+
+
 ```
+
+Add views: views = python functions to handle html requests/responses
+Django web pages utilise multiple views with different tasks and missions
+
+Sample view:
+
+```python
+# project/app/views.py
+
+from django.shortcuts import render
+from django.http import HttpResponse
+
+
+def members(request):
+    return HttpResponse("Hello world!")
+```
+
+## URLs: Linking Up A View
+
+Add `urls.py` to `<app>` at the same level of `views.py` - sample urls below
+
+```
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('members/', views.members, name='members'),
+]
+```
+
+Above URLs file for members app is app-specific, for root project app, need to add another `urls.py` file to link up `urls.py` from other apps - sample for `<project>/urls.py`
+
+```python
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path("", include("members.urls")),
+    path("admin/", admin.site.urls),
+]
+```
+
+Verify via `127.0.0.1:<port>/members`
