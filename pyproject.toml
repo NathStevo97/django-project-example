@@ -1,0 +1,14 @@
+[project]
+name = "django-project-example"
+version = "0.1.0"
+description = "Boilerplate Django Application for Learning and Development"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "django>=6.1",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.3",
+]
